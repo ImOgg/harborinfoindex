@@ -7,27 +7,24 @@
     <title>台灣漁港資訊網</title>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style scoped>
-        /* 全局設置，讓 body 填滿整個視窗 */
         html,
         body {
             margin: 0;
             padding: 0;
             width: 100%;
             height: 100vh;
-            overflow-x: hidden;
+            overflow: hidden;
         }
 
-        /* 設置背景圖片樣式 */
         body {
-            background-image: url(./images/harbor_1.png);
+            background-image: url(./images/底圖-01.png);
             background-size: cover;
-            /* 自動調整大小以覆蓋整個視窗 */
-            background-position: bottom;
-            /* 圖片居中顯示 */
+            /* 背景會自適應填滿整個視窗 */
+            background-position: bottom center;
+            /* 背景居中且貼近底部 */
             background-repeat: no-repeat;
-            /* 不重複顯示 */
             background-attachment: fixed;
-            /* 背景固定不隨內容滾動 */
+            /* 背景保持固定，不隨頁面滾動 */
         }
 
         .container {
@@ -42,463 +39,84 @@
         }
 
         .harbor-info-h2 {
-            font-weight: bold;
-            font-size: 90px;
-            color: #4d819f;
-            text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, 1px 1px 0 #ffffff;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .harbor-info-h2 img {
+            width: 50vw;
+            /* 讓圖片寬度佔螢幕寬度的 50% */
+            max-width: 800px;
+            /* 設置圖片的最大寬度 */
+            height: auto;
+            /* 確保圖片保持比例 */
         }
 
         .bubble-wrapper {
-            position: relative;
             display: flex;
             justify-content: center;
             align-items: center;
+            gap: 20px;
             width: 100%;
-            margin-top: 50px;
+            margin-bottom: 20px;
+        }
+
+        .first-row {
+            gap: 120px;
+        }
+
+        .second-row {
+            gap: 80px;
         }
 
         .bubble {
+            width: 160px;
+            height: 160px;
             display: flex;
             align-items: center;
             justify-content: center;
-            flex-direction: column;
             text-decoration: none;
-            margin: 0 5px;
-            /* 調整每個泡泡之間的間距 */
-            position: absolute;
+            flex-direction: column;
             transition: all 0.3s ease-in-out;
-            /* 讓RWD調整更平滑 */
-            gap: 20px;
+            /* 動畫效果 */
+            animation: move-updown 4s infinite ease-in-out;
+        }
+
+        @keyframes move-updown {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-30px);
+            }
+        }
+
+        .bubble:nth-child(odd) {
+            animation-duration: 5s;
+        }
+
+        .bubble:nth-child(even) {
+            animation-duration: 6s;
         }
 
         .bubble img {
-            width: 160px;
-            /* 可根據需求調整圖片大小 */
+            width: 100%;
             height: auto;
         }
 
-
-        .bubble-text {
-            font-size: 20px;
-            text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, 1px 1px 0 #ffffff;
-        }
-
-        .bubble:nth-child(1) {
-            animation: bounce 2s infinite ease-in-out;
-            transform: translate(-20vw, 12vh);
-            /* 使用 vw 和 vh 代替固定像素 */
-        }
-
-        @keyframes bounce {
-
-            0%,
-            100% {
-                transform: translate(-20vw, 12vh);
-                /* 初始位置 */
-            }
-
-            50% {
-                transform: translate(-20vw, 14vh);
-                /* 向上移動 */
-            }
-        }
-
-        .bubble:nth-child(2) {
-            animation: bounce2 2s infinite ease-in-out;
-            transform: translate(-12vw, 17vh);
-        }
-
-        @keyframes bounce2 {
-
-            0%,
-            100% {
-                transform: translate(-12vw, 17vh);
-                /* 初始位置 */
-            }
-
-            50% {
-                transform: translate(-12vw, 19vh);
-                /* 向上移動 */
-            }
-        }
-
-        .bubble:nth-child(3) {
-            animation: bounce3 2s infinite ease-in-out;
-            transform: translate(0vw, 23vh);
-        }
-
-        @keyframes bounce3 {
-
-            0%,
-            100% {
-                transform: translate(0vw, 23vh);
-                /* 初始位置 */
-            }
-
-            50% {
-                transform: translate(0vw, 25vh);
-                /* 向上移動 */
-            }
-        }
-
-        .bubble:nth-child(4) {
-            animation: bounce4 2s infinite ease-in-out;
-            transform: translate(12vw, 18vh);
-        }
-
-        @keyframes bounce4 {
-
-            0%,
-            100% {
-                transform: translate(12vw, 18vh);
-                /* 初始位置 */
-            }
-
-            50% {
-                transform: translate(12vw, 20vh);
-                /* 向上移動 */
-            }
-        }
-
-        .bubble:nth-child(5) {
-            animation: bounce5 2s infinite ease-in-out;
-            transform: translate(25vw, 12vh);
-        }
-
-        @keyframes bounce5 {
-
-            0%,
-            100% {
-                transform: translate(25vw, 12vh);
-                /* 初始位置 */
-            }
-
-            50% {
-                transform: translate(25vw, 14vh);
-                /* 向上移動 */
-            }
-        }
-
-        .bubble:nth-child(6) {
-            animation: bounce6 2s infinite ease-in-out;
-            transform: translate(35vw, 6vh);
-        }
-
-        @keyframes bounce6 {
-
-            0%,
-            100% {
-                transform: translate(35vw, 6vh);
-                /* 初始位置 */
-            }
-
-            50% {
-                transform: translate(35vw, 8vh);
-                /* 向上移動 */
-            }
-        }
-
-        /* .bubble:nth-child(1) {
-            animation: bounce 2s infinite ease-in-out;
-        } */
-
-        /* @keyframes bounce {
-
-            0%,
-            100% {
-                transform: translate(-480px, 100px);
-
-            }
-
-            50% {
-                transform: translate(-480px, 132px);
-
-            }
-        }
-
-        .bubble:nth-child(2) {
-            animation: bounce2 2s infinite ease-in-out;
-        }
-
-        @keyframes bounce2 {
-
-            0%,
-            100% {
-                transform: translate(-324px, 320px);
-
-            }
-
-            50% {
-                transform: translate(-324px, 290px);
-
-            }
-        }
-
-        .bubble:nth-child(3) {
-            animation: bounce3 2s infinite ease-in-out;
-        }
-
-        @keyframes bounce3 {
-
-
-            0%,
-            100% {
-                transform: translate(-120px, 140px);
-
-            }
-
-            50% {
-                transform: translate(-120px, 110px);
-
-            }
-        }
-
-        .bubble:nth-child(4) {
-            animation: bounce4 2s infinite ease-in-out;
-        }
-
-        @keyframes bounce4 {
-
-            0%,
-            100% {
-                transform: translate(-132px, 360px);
-
-            }
-
-            50% {
-                transform: translate(-132px, 390px);
-
-            }
-        }
-
-        .bubble:nth-child(5) {
-            animation: bounce5 2s infinite ease-in-out;
-        }
-
-        @keyframes bounce5 {
-
-            0%,
-            100% {
-                transform: translate(240px, 110px);
-
-            }
-
-            50% {
-                transform: translate(240px, 80px);
-
-            }
-        }
-
-        .bubble:nth-child(6) {
-            animation: bounce6 2s infinite ease-in-out;
-        }
-
-        @keyframes bounce6 {
-
-            0%,
-            100% {
-                transform: translate(90px, 254px);
-
-            }
-
-            50% {
-                transform: translate(90px, 284px);
-
-            }
-        } */
-
-        /* 平板設備及以下 */
-        /* @media (max-width: 1024px) {
-            .bubble img {
-                width: 150px;
-            }
-
-            .bubble span {
-                font-size: 18px;
-            }
-
-            .bubble:nth-child(1) {
-                animation: bounce 2s infinite ease-in-out;
-                transform: translate(-250px, 120px);
-            }
-
-            @keyframes bounce {
-
-                0%,
-                100% {
-                    transform: translate(-250px, 120px);
-                }
-
-                50% {
-                    transform: translate(-250px, 140px);
-
-                }
-            }
-
-            .bubble:nth-child(2) {
-                animation: bounce2 2s infinite ease-in-out;
-                transform: translate(-120px, 170px);
-            }
-
-            @keyframes bounce2 {
-
-                0%,
-                100% {
-                    transform: translate(-120px, 170px);
-
-                }
-
-                50% {
-                    transform: translate(-120px, 190px);
-
-                }
-            }
-
-            .bubble:nth-child(3) {
-                animation: bounce3 2s infinite ease-in-out;
-                transform: translate(0px, 230px);
-            }
-
-            @keyframes bounce3 {
-
-                0%,
-                100% {
-                    transform: translate(0px, 230px);
-
-                }
-
-                50% {
-                    transform: translate(0px, 250px);
-
-                }
-            }
-
-            .bubble:nth-child(4) {
-                animation: bounce4 2s infinite ease-in-out;
-                transform: translate(120px, 180px);
-            }
-
-            @keyframes bounce4 {
-
-                0%,
-                100% {
-                    transform: translate(120px, 180px);
-
-                }
-
-                50% {
-                    transform: translate(120px, 200px);
-
-                }
-            }
-
-            .bubble:nth-child(5) {
-                animation: bounce5 2s infinite ease-in-out;
-                transform: translate(250px, 120px);
-            }
-
-            @keyframes bounce5 {
-
-                0%,
-                100% {
-                    transform: translate(250px, 120px);
-
-                }
-
-                50% {
-                    transform: translate(250px, 140px);
-
-                }
-            }
-
-            .bubble:nth-child(6) {
-                animation: bounce6 2s infinite ease-in-out;
-                transform: translate(350px, 60px);
-            }
-
-            @keyframes bounce6 {
-
-                0%,
-                100% {
-                    transform: translate(350px, 60px);
-
-                }
-
-                50% {
-                    transform: translate(350px, 80px);
-
-                }
-            }
-        } */
-
-
-        /* 手機版 */
-        /* @media (max-width: 768px) {
-            .bubble-wrapper {
-                flex-direction: row;
-                align-items: center;
-                flex-wrap: wrap;
-                margin: 0;
-            }
-
-            .bubble {
-                position: static;
-                margin: 10px;
-                animation: none;
-                flex-basis: calc(33% - 20px);
-            }
-
-            .bubble img {
-                width: 100px;
-            }
-
-            .bubble span {
-                font-size: 14px;
-            }
-
-            .bubble:nth-child(1) {
-                animation: none;
-                transform: translate(0px, 0px);
-            }
-
-            .bubble:nth-child(2) {
-                animation: none;
-                transform: translate(0px, 0px);
-            }
-
-            .bubble:nth-child(3) {
-                animation: none;
-                transform: translate(0px, 0px);
-            }
-
-            .bubble:nth-child(4) {
-                animation: none;
-                transform: translate(0px, 0px);
-            }
-
-            .bubble:nth-child(5) {
-                animation: none;
-                transform: translate(0px, 0px);
-            }
-
-            .bubble:nth-child(6) {
-                animation: none;
-                transform: translate(0px, 0px);
-            }
-
-        } */
-
-        .box1 {
-            display: none;
-        }
-
         .bubble-container {
-            transform: translate(496px, -48px);
-            position: relative;
             width: 300px;
-            /* 方形的寬度 */
             height: 300px;
-            /* 方形的高度 */
+            padding: 20px;
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            align-items: center;
+            border-radius: 20px;
+            position: relative;
             background-image: url('data:image/svg+xml;utf8, \
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"> \
                     <g class="bubble__group"> \
@@ -528,27 +146,35 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            gap: 10px;
+        }
+
+        .login-form label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            /* 允許內容換行，避免擠在一起 */
         }
 
         .login-form input {
-            margin: 10px 0;
-            padding: 10px;
-            width: 200px;
+            margin: 6px 0;
+            padding: 8px;
             border: 1px solid #ccc;
             border-radius: 5px;
             font-size: 16px;
         }
 
         .login-form button {
-            padding: 10px;
-            width: 220px;
+            padding: 8px;
+            width: 100%;
             border: none;
             background-color: #4d819f;
             color: white;
             font-size: 16px;
             border-radius: 5px;
             cursor: pointer;
-            width:100%;
+
         }
 
         .login-text {
@@ -556,43 +182,75 @@
             font-size: 14px;
             color: #666;
         }
+
+        .bubble:nth-child(odd) {
+            animation-duration: 5s;
+        }
+
+        .bubble:nth-child(even) {
+            animation-duration: 6s;
+        }
+
+        .mobilebutton {
+            display: none;
+        }
+
+        @media (max-width: 1024px) {
+
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                height: 100vh;
+                overflow: scroll;
+            }
+
+            .container {
+                gap: 70px;
+            }
+
+            .bubble-container {
+                display: none;
+            }
+
+            .bubble-wrapper {
+                flex-wrap: wrap;
+            }
+
+            .mobilebutton {
+                display: flex;
+            }
+
+            .bubble {
+                width: 100px;
+            }
+        }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <div data-aos="zoom-in" class="harbor-info-h2" style="width: 100%;">
-            台灣漁港資訊網
+        <div data-aos="zoom-in" class="harbor-info-h2">
+            <img src="./images/bigtitle.webp" alt="台灣漁港資訊網">
         </div>
-        <div style="width: 300px; height: 300px; background-color: #000;" class="box1" id="box1"></div>
-        <div class="bubble-wrapper">
+
+        <!-- 第一行的內容 -->
+        <div class="bubble-wrapper first-row">
             <a href="https://testu24.toff.best/php/page.php?menu_id=16&pd_class_id=102&mod=c2" class="bubble">
-                <img src="./images/button01_0.png" alt="漁港介紹">
-                <span class="bubble-text">漁港介紹</span>
-            </a>
-            <a href="https://testu24.toff.best/php/page.php?menu_id=100" class="bubble">
-                <img src="./images/button06_0.png" alt="漁港天氣">
-                <span class="bubble-text">漁港天氣</span>
+                <img src="./images/button_01.webp" alt="漁港介紹">
             </a>
             <a href="https://testu24.toff.best/php/page.php?menu_id=101" class="bubble">
-                <img src="./images/button02_0.png" alt="在港漁船數量查詢">
-                <span class="bubble-text">在港漁船數量查詢</span>
-            </a>
-            <a href="https://testu24.toff.best/php/page.php?menu_id=17" class="bubble">
-                <img src="./images/button05_0.png" alt="最新消息">
-                <span class="bubble-text">最新消息</span>
+                <img src="./images/button_02.webp" alt="在港漁船數量查詢">
             </a>
             <a href="https://testu24.toff.best/php/page.php?menu_id=16&pd_class_id=102" class="bubble">
-                <img src="./images/button04_0.png" alt="國內漁船動態查詢">
-                <span class="bubble-text">國內漁船動態查詢</span>
+                <img src="./images/button_04.webp" alt="國內漁船動態查詢">
             </a>
-            <a href="https://testu24.toff.best/custom_login/?next=/user/profile" class="bubble">
-                <img src="./images/button03_0.png" alt="漁港停泊費用試算">
-                <span class="bubble-text">漁港停泊費用試算</span>
+            <a href="#" class="bubble mobilebutton" id="openlogin">
+                <img src="./images/fishingharborlogo.png" alt="fishingharborlogo">
             </a>
-            <div class="bubble-container">
+            <div class="bubble-container" id="bubble-container">
                 <!-- 表單內容 -->
-
                 <form class="login-form" style="font-weight: bold;">
                     登入
                     <label for="">
@@ -603,22 +261,36 @@
                         密碼
                         <input type="password" placeholder="密碼" required>
                     </label>
-                    <button type="submit" >登入</button>
+                    <button type="submit">登入</button>
                     <div class="login-text">
                         註冊 | 忘記密碼
                     </div>
                     <div style="margin-top: 10px;">申請進入一類漁港請先登入</div>
                 </form>
             </div>
+        </div>
 
+        <!-- 第二行的內容 -->
+        <div class="bubble-wrapper second-row">
+            <a href="https://testu24.toff.best/php/page.php?menu_id=100" class="bubble">
+                <img src="./images/button_06.webp" alt="漁港天氣">
+            </a>
+            <a href="https://testu24.toff.best/php/page.php?menu_id=17" class="bubble">
+                <img src="./images/button_05.webp" alt="最新消息">
+            </a>
+            <a href="https://testu24.toff.best/custom_login/?next=/user/profile" class="bubble">
+                <img src="./images/button_03.webp" alt="漁港停泊費用試算">
+            </a>
         </div>
     </div>
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init();
 
-        document.querySelector('#login').addEventListener("click", () => {
-            document.getElementById('box1').style.display = 'flex';
+        document.querySelector('#openlogin').addEventListener("click", () => {
+            document.getElementById('bubble-container').style.display = 'flex';
+            document.getElementById('bubble-container').style.position = 'fixed';
         });
     </script>
 </body>
