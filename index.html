@@ -85,19 +85,134 @@
 
         .bubble:nth-child(1) {
             animation: bounce 2s infinite ease-in-out;
+            transform: translate(-20vw, 12vh);
+            /* 使用 vw 和 vh 代替固定像素 */
         }
 
         @keyframes bounce {
 
             0%,
             100% {
-                transform: translate(-480px, 100px);
+                transform: translate(-20vw, 12vh);
                 /* 初始位置 */
             }
 
             50% {
-                transform: translate(-480px, 132px);
+                transform: translate(-20vw, 14vh);
                 /* 向上移動 */
+            }
+        }
+
+        .bubble:nth-child(2) {
+            animation: bounce2 2s infinite ease-in-out;
+            transform: translate(-12vw, 17vh);
+        }
+
+        @keyframes bounce2 {
+
+            0%,
+            100% {
+                transform: translate(-12vw, 17vh);
+                /* 初始位置 */
+            }
+
+            50% {
+                transform: translate(-12vw, 19vh);
+                /* 向上移動 */
+            }
+        }
+
+        .bubble:nth-child(3) {
+            animation: bounce3 2s infinite ease-in-out;
+            transform: translate(0vw, 23vh);
+        }
+
+        @keyframes bounce3 {
+
+            0%,
+            100% {
+                transform: translate(0vw, 23vh);
+                /* 初始位置 */
+            }
+
+            50% {
+                transform: translate(0vw, 25vh);
+                /* 向上移動 */
+            }
+        }
+
+        .bubble:nth-child(4) {
+            animation: bounce4 2s infinite ease-in-out;
+            transform: translate(12vw, 18vh);
+        }
+
+        @keyframes bounce4 {
+
+            0%,
+            100% {
+                transform: translate(12vw, 18vh);
+                /* 初始位置 */
+            }
+
+            50% {
+                transform: translate(12vw, 20vh);
+                /* 向上移動 */
+            }
+        }
+
+        .bubble:nth-child(5) {
+            animation: bounce5 2s infinite ease-in-out;
+            transform: translate(25vw, 12vh);
+        }
+
+        @keyframes bounce5 {
+
+            0%,
+            100% {
+                transform: translate(25vw, 12vh);
+                /* 初始位置 */
+            }
+
+            50% {
+                transform: translate(25vw, 14vh);
+                /* 向上移動 */
+            }
+        }
+
+        .bubble:nth-child(6) {
+            animation: bounce6 2s infinite ease-in-out;
+            transform: translate(35vw, 6vh);
+        }
+
+        @keyframes bounce6 {
+
+            0%,
+            100% {
+                transform: translate(35vw, 6vh);
+                /* 初始位置 */
+            }
+
+            50% {
+                transform: translate(35vw, 8vh);
+                /* 向上移動 */
+            }
+        }
+
+        /* .bubble:nth-child(1) {
+            animation: bounce 2s infinite ease-in-out;
+        } */
+
+        /* @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translate(-480px, 100px);
+
+            }
+
+            50% {
+                transform: translate(-480px, 132px);
+
             }
         }
 
@@ -110,12 +225,12 @@
             0%,
             100% {
                 transform: translate(-324px, 320px);
-                /* 初始位置 */
+
             }
 
             50% {
                 transform: translate(-324px, 290px);
-                /* 向上移動 */
+
             }
         }
 
@@ -129,12 +244,12 @@
             0%,
             100% {
                 transform: translate(-120px, 140px);
-                /* 初始位置 */
+
             }
 
             50% {
                 transform: translate(-120px, 110px);
-                /* 向上移動 */
+
             }
         }
 
@@ -147,12 +262,12 @@
             0%,
             100% {
                 transform: translate(-132px, 360px);
-                /* 初始位置 */
+
             }
 
             50% {
                 transform: translate(-132px, 390px);
-                /* 向上移動 */
+
             }
         }
 
@@ -165,12 +280,12 @@
             0%,
             100% {
                 transform: translate(240px, 110px);
-                /* 初始位置 */
+
             }
 
             50% {
                 transform: translate(240px, 80px);
-                /* 向上移動 */
+
             }
         }
 
@@ -183,17 +298,17 @@
             0%,
             100% {
                 transform: translate(90px, 254px);
-                /* 初始位置 */
+
             }
 
             50% {
                 transform: translate(90px, 284px);
-                /* 向上移動 */
+
             }
-        }
+        } */
 
         /* 平板設備及以下 */
-        @media (max-width: 1024px) {
+        /* @media (max-width: 1024px) {
             .bubble img {
                 width: 150px;
             }
@@ -202,7 +317,6 @@
                 font-size: 18px;
             }
 
-            /* 調整每個泡泡的位置和動畫 */
             .bubble:nth-child(1) {
                 animation: bounce 2s infinite ease-in-out;
                 transform: translate(-250px, 120px);
@@ -213,12 +327,11 @@
                 0%,
                 100% {
                     transform: translate(-250px, 120px);
-                    /* 初始位置 */
                 }
 
                 50% {
                     transform: translate(-250px, 140px);
-                    /* 向上移動 */
+
                 }
             }
 
@@ -232,12 +345,12 @@
                 0%,
                 100% {
                     transform: translate(-120px, 170px);
-                    /* 初始位置 */
+
                 }
 
                 50% {
                     transform: translate(-120px, 190px);
-                    /* 向上移動 */
+
                 }
             }
 
@@ -251,12 +364,12 @@
                 0%,
                 100% {
                     transform: translate(0px, 230px);
-                    /* 初始位置 */
+
                 }
 
                 50% {
                     transform: translate(0px, 250px);
-                    /* 向上移動 */
+
                 }
             }
 
@@ -270,12 +383,12 @@
                 0%,
                 100% {
                     transform: translate(120px, 180px);
-                    /* 初始位置 */
+
                 }
 
                 50% {
                     transform: translate(120px, 200px);
-                    /* 向上移動 */
+
                 }
             }
 
@@ -289,12 +402,12 @@
                 0%,
                 100% {
                     transform: translate(250px, 120px);
-                    /* 初始位置 */
+
                 }
 
                 50% {
                     transform: translate(250px, 140px);
-                    /* 向上移動 */
+
                 }
             }
 
@@ -308,44 +421,35 @@
                 0%,
                 100% {
                     transform: translate(350px, 60px);
-                    /* 初始位置 */
+
                 }
 
                 50% {
                     transform: translate(350px, 80px);
-                    /* 向上移動 */
+
                 }
             }
-        }
+        } */
 
 
         /* 手機版 */
-        @media (max-width: 768px) {
+        /* @media (max-width: 768px) {
             .bubble-wrapper {
                 flex-direction: row;
-                /* 手機版橫向排列 */
                 align-items: center;
                 flex-wrap: wrap;
-                /* 設置換行 */
-                /* 泡泡之間的間距 */
-                /* gap: 10px;  */
                 margin: 0;
             }
 
             .bubble {
                 position: static;
-                /* 取消絕對定位 */
                 margin: 10px;
-                /* 調整每個泡泡在手機版的間距 */
                 animation: none;
-                /* 停用動畫 */
                 flex-basis: calc(33% - 20px);
-                /* 手機版每列顯示三個泡泡 */
             }
 
             .bubble img {
                 width: 100px;
-                /* 調整圖片大小 */
             }
 
             .bubble span {
@@ -382,13 +486,12 @@
                 transform: translate(0px, 0px);
             }
 
-        }
+        } */
 
         .box1 {
             display: none;
         }
 
-        /* 設置 SVG 泡泡作為背景 */
         .bubble-container {
             transform: translate(496px, -48px);
             position: relative;
@@ -445,6 +548,7 @@
             font-size: 16px;
             border-radius: 5px;
             cursor: pointer;
+            width:100%;
         }
 
         .login-text {
@@ -491,7 +595,7 @@
 
                 <form class="login-form" style="font-weight: bold;">
                     登入
-                    <label for="" >
+                    <label for="">
                         帳號
                         <input type="text" placeholder="帳號" required>
                     </label>
@@ -499,9 +603,9 @@
                         密碼
                         <input type="password" placeholder="密碼" required>
                     </label>
-                    <button type="submit">登入</button>
+                    <button type="submit" >登入</button>
                     <div class="login-text">
-                        忘記密碼 | 註冊
+                        註冊 | 忘記密碼
                     </div>
                     <div style="margin-top: 10px;">申請進入一類漁港請先登入</div>
                 </form>
