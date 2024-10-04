@@ -117,7 +117,7 @@
             align-items: center;
             border-radius: 20px;
             position: relative;
-            background-image: url('data:image/svg+xml;utf8, \
+            /* background-image: url('data:image/svg+xml;utf8, \
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"> \
                     <g class="bubble__group"> \
                         <rect width="200" height="200" fill="url(%23bubble-grad)" /> \
@@ -129,7 +129,7 @@
                             <stop offset="100%" stop-color="rgb(173,216,230)" /> \
                         </linearGradient> \
                     </defs> \
-                </svg>');
+                </svg>'); */
             background-size: cover;
             /* 確保背景圖片填滿整個方形 */
             background-position: center;
@@ -229,6 +229,29 @@
                 width: 100px;
             }
         }
+
+        @media (max-width: 768px) {
+
+            .first-row {
+                gap: 10px;
+            }
+
+            .first-row .bubble:nth-child(1), .first-row .bubble:nth-child(3)  {
+                margin-top: 60px;
+            }
+
+            .second-row {
+                margin-top: 10px;
+                gap: 10px;
+            }
+            .second-row .bubble:nth-child(2) {
+                margin-top: -60px;
+            }
+            .container {
+                gap: 30px;
+            }
+
+        }
     </style>
 </head>
 
@@ -249,9 +272,9 @@
             <a href="https://testu24.toff.best/php/page.php?menu_id=16&pd_class_id=102" class="bubble">
                 <img src="./images/button_04.webp" alt="國內漁船動態查詢">
             </a>
-            <a href="#" class="bubble mobilebutton" id="openlogin">
+            <!-- <a href="#" class="bubble mobilebutton" id="openlogin">
                 <img src="./images/fishingharborlogo.png" alt="fishingharborlogo">
-            </a>
+            </a> -->
             <div class="bubble-container" id="bubble-container" style="margin-left: 200px;">
                 <!-- 表單內容 -->
                 <form class="login-form" style="font-weight: bold;">
@@ -288,6 +311,9 @@
             </a>
             <a href="https://testu24.toff.best/custom_login/?next=/user/profile" class="bubble">
                 <img src="./images/button_03.webp" alt="漁港停泊費用試算">
+            </a>
+            <a href="#" class="bubble mobilebutton" id="openlogin">
+                <img src="./images/fishingharborlogo.png" alt="fishingharborlogo">
             </a>
         </div>
     </div>
